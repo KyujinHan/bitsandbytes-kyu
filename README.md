@@ -1,8 +1,12 @@
 # Resolving version about below error.
 ```
-RuntimeError: Output 0 of MatMul8bitLtBackward is a view and is being modified inplace. This view was created inside a custom Function (or because an input was returned as-is) and the autograd logic to handle view+inplace would override the custom backward associated with the custom Function, leading to incorrect gradients. This behavior is forbidden. You can fix this by cloning the output of the custom Function.
+RuntimeError: Output 0 of MatMul8bitLtBackward is a view and is being modified inplace.  
+This view was created inside a custom Function (or because an input was returned as-is)  
+and the autograd logic to handle view+inplace would override the custom backward associated with the custom Function,
+leading to incorrect gradients. This behavior is forbidden. You can fix this by cloning the output of the custom Function.  
 ```
 References by: https://github.com/TimDettmers/bitsandbytes/issues/736  
+  
 ---
 # bitsandbytes
 
