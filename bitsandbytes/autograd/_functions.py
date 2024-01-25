@@ -435,8 +435,10 @@ class MatMul8bitLt(torch.autograd.Function):
             ctx.tensor_states = (None, None)
             ctx.save_for_backward(None, None)
 
-        clone_func = torch.clone if len(output_shape) == 3 else lambda x: x
-        return clone_func(output.view(output_shape))
+        if len(output_shape) == 3:
+            return output.view(output_shape).clone()
+        else:
+            return output
 
     @staticmethod
     def backward(ctx, grad_output):
