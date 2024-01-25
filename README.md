@@ -1,3 +1,9 @@
+# Resolving version about below error.
+```
+RuntimeError: Output 0 of MatMul8bitLtBackward is a view and is being modified inplace. This view was created inside a custom Function (or because an input was returned as-is) and the autograd logic to handle view+inplace would override the custom backward associated with the custom Function, leading to incorrect gradients. This behavior is forbidden. You can fix this by cloning the output of the custom Function.
+```
+References by: https://github.com/TimDettmers/bitsandbytes/issues/736  
+---
 # bitsandbytes
 
 The bitsandbytes is a lightweight wrapper around CUDA custom functions, in particular 8-bit optimizers, matrix multiplication (LLM.int8()), and quantization functions.
